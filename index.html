@@ -1,1 +1,37 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Current Time</title>
+</head>
+<body>
+  <h1 id="clock"></h1>
+
+  <script>
+    function showTime() {
+      // Create a new Date object
+      const time = new Date();
+
+      // Extract hours, minutes, and seconds
+      let hours = time.getHours();
+      let minutes = time.getMinutes();
+      let seconds = time.getSeconds();
+
+      // Add leading zero if the number is less than 10
+      hours = hours < 10 ? "0" + hours : hours;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      // Format the time as HH:MM:SS
+      const currentTime = hours + ":" + minutes + ":" + seconds;
+
+      // Display the time in the element with id="clock"
+      document.getElementById("clock").textContent = currentTime;
+    }
+
+    // Call the function every second to update the time
+    setInterval(showTime, 1000);
+  </script>
+</body>
+</html>
